@@ -1,104 +1,135 @@
 from sec_parsers.detectors import StyleTagDetector
-from sec_parsers.style_detection import detect_part,detect_item,detect_signatures,detect_page_number,detect_bullet_point,\
-    detect_all_caps,detect_note,detect_emphasis_capitalization, detect_empty_string, detect_prospectus
+from sec_parsers.style_detection import (
+    detect_part,
+    detect_item,
+    detect_signatures,
+    detect_page_number,
+    detect_bullet_point,
+    detect_all_caps,
+    detect_note,
+    detect_emphasis_capitalization,
+    detect_empty_string,
+    detect_prospectus,
+    detect_schedule14A,
+)
+
 
 class ProspectusStringDetector(StyleTagDetector):
     def __init__(self, **kwargs):
-        super().__init__(style='prospectus;',**kwargs)
+        super().__init__(style="prospectus;", **kwargs)
 
-    def detect(self,string):
+    def detect(self, string):
         if detect_prospectus(string):
-            return 'prospectus;'
+            return "prospectus;"
         else:
-            return ''
+            return ""
+
 
 class PartStringDetector(StyleTagDetector):
     def __init__(self, **kwargs):
-        super().__init__(style='part;',**kwargs)
+        super().__init__(style="part;", **kwargs)
 
-    def detect(self,string):
+    def detect(self, string):
         if detect_part(string):
-            return 'part;'
+            return "part;"
         else:
-            return ''
-        
+            return ""
+
+
 class ItemStringDetector(StyleTagDetector):
     def __init__(self, **kwargs):
-        super().__init__(style='item;',**kwargs)
+        super().__init__(style="item;", **kwargs)
 
-    def detect(self,string):
+    def detect(self, string):
         if detect_item(string):
-            return 'item;'
+            return "item;"
         else:
-            return ''
-    
+            return ""
+
+
 class SignaturesStringDetector(StyleTagDetector):
     def __init__(self, **kwargs):
-        super().__init__(style='signatures;',**kwargs)
+        super().__init__(style="signatures;", **kwargs)
 
-    def detect(self,string):
+    def detect(self, string):
         if detect_signatures(string):
-            return 'signatures;'
+            return "signatures;"
         else:
-            return ''
-        
+            return ""
+
+
 class PageNumberStringDetector(StyleTagDetector):
     def __init__(self, **kwargs):
-        super().__init__(style='page number;',**kwargs)
+        super().__init__(style="page number;", **kwargs)
 
-    def detect(self,string): 
+    def detect(self, string):
         if detect_page_number(string):
-            return 'page number;'
+            return "page number;"
         else:
-            return ''
+            return ""
+
 
 class BulletPointStringDetector(StyleTagDetector):
     def __init__(self, **kwargs):
-        super().__init__(style='bullet point;',**kwargs)
+        super().__init__(style="bullet point;", **kwargs)
 
-    def detect(self,string):
+    def detect(self, string):
         if detect_bullet_point(string):
-            return 'bullet point;'
+            return "bullet point;"
         else:
-            return ''
+            return ""
+
 
 class AllCapsStringDetector(StyleTagDetector):
     def __init__(self, **kwargs):
-        super().__init__(style='all caps;',**kwargs)
+        super().__init__(style="all caps;", **kwargs)
 
-    def detect(self,string):
+    def detect(self, string):
         if detect_all_caps(string):
-            return 'all caps;'
+            return "all caps;"
         else:
-            return ''
+            return ""
+
 
 class NoteStringDetector(StyleTagDetector):
     def __init__(self, **kwargs):
-        super().__init__(style='note;',**kwargs)
+        super().__init__(style="note;", **kwargs)
 
-    def detect(self,string):
+    def detect(self, string):
         if detect_note(string):
-            return 'note;'
+            return "note;"
         else:
-            return ''
-              
+            return ""
+
 
 class EmphasisCapStringDetector(StyleTagDetector):
     def __init__(self, **kwargs):
-        super().__init__(style='emphasis capitalization;',**kwargs)
+        super().__init__(style="emphasis capitalization;", **kwargs)
 
-    def detect(self,string):
+    def detect(self, string):
         if detect_emphasis_capitalization(string):
-            return 'emphasis capitalization;'
+            return "emphasis capitalization;"
         else:
-            return ''
-        
+            return ""
+
+
 class EmptyStringDetector(StyleTagDetector):
     def __init__(self, **kwargs):
-        super().__init__(style='empty string;',**kwargs)
+        super().__init__(style="empty string;", **kwargs)
 
-    def detect(self,string):
+    def detect(self, string):
         if detect_empty_string(string):
-            return 'empty string;'
+            return "empty string;"
         else:
-            return ''
+            return ""
+
+
+class Schedule14ADetector(StyleTagDetector):
+    def __init__(self, **kwargs):
+        super().__init__(style="schedule14a;", **kwargs)
+
+    def detect(self, string):
+        if detect_schedule14A(string):
+            return "schedule14a;"
+        else:
+            return ""

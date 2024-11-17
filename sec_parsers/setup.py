@@ -5,6 +5,9 @@ long_description = Path("../readme.md").read_text()
 
 setup(
     name="sec_parsers",
+    entry_points = {
+        'console_scripts': ['secparser=sec_parsers.command_line:cli'],
+    },
     author="John Friedman",
     version="0.549",
     description = "A package to parse SEC filings",
@@ -15,6 +18,7 @@ setup(
     install_requires=[
         'lxml', 
         'requests',
+        'typer',
     ],
     extras_require={
         'downloaders': ['sec_downloaders'],
