@@ -99,5 +99,5 @@ class SEC_DEF14A_ElementGroup(HeaderElementDetectorGroup):
             SequenceTagDetector(parsing_rule="continue", cleaning_rule="header;"),
             FilenameTagDetector(parsing_rule="continue", cleaning_rule="header;"),
             DescriptionTagDetector(parsing_rule="continue", cleaning_rule="header;"),
-            TextTagDetector(parsing_rule="continue", cleaning_rule="header;"),
+            TextTagDetector(parsing_rule="return", cleaning_rule="header;"),
         ]
